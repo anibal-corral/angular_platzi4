@@ -35,7 +35,7 @@ const appRoutes: Routes=[
     FormsModule,
     CommonModule,
      AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyA8a33R37xpok5MxTztM9aR5RHzSh0jd0Q'
+      apiKey: ''
     }),
     RouterModule.forRoot(appRoutes)//con esto agregamos el módulo de router con las rutas declaradas más arriba
 
