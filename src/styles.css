@@ -1,0 +1,10 @@
+/* You can add global styles to this file, and also import other style files */
+agm-map {
+    height: 300px;
+  }
+
+  .numero_par{
+      /*Objetivo de esta regla de clase es que ponga un color de fondo en los registros */
+background-color: red;
+color: blue;
+  }
