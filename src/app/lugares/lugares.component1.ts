@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { LugaresServicio } from '../services/lugares.services';
+import { Http } from '@angular/http';
 
 @Component({
   selector: 'app-lugares',
   templateUrl: './lugares.component.html',
-  
 })
 export class LugaresComponent{
       //STRING INTERPOLATION
@@ -24,7 +24,6 @@ export class LugaresComponent{
         alert("Haciendo algo");
       }
       //TWO WAY BINDING: ESTO SE HACE DIRECTAMANTE EN EL HTML CON ([])
-    
       //NGFOR
       /*lugares:any=[
         {nombre:"Florería la Guarderaía"},
@@ -49,15 +48,13 @@ export class LugaresComponent{
       lat:number=-33.4397112;
       lng:number=-70.6556858;
       lugares=null;
-      constructor(private lugaresServicio:LugaresServicio){
+      constructor(private lugaresServicio:LugaresServicio, private http:Http){
       // esto es "normalmente"    this.lugares=lugaresServicio.getLugares();
       // esto es para suscribirse a un servicio
-      lugaresServicio.getLugares().valueChanges()
+      lugaresServicio.getLugaresHTTP(http)
         .subscribe((lugares)=>{
           this.lugares=lugares;
         });
-      
-
       }
     
 }

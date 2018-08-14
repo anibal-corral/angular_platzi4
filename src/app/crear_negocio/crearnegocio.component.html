@@ -1,0 +1,35 @@
+<h1>Componente Crear Nuevo Negocio</h1>
+<div class="well">
+        <a class="nav-link" href="/lugares">Lugares</a> / Crear nuevo Negocio
+</div>   
+<div class="container">
+
+<label>Nombre</label>
+<input type="text" class="form-control" [(ngModel)]="lugar.nombre"/>
+<br/>
+<label>Descripción</label>
+<textarea class="form-control" [(ngModel)]="lugar.descripcion"></textarea>
+<br/>
+<label>Distancia</label>
+<input type="number" class="form-control" [(ngModel)]="lugar.distancia"/>
+<br/>
+<label>Cercanía</label>
+<input type="number" class="form-control" [(ngModel)]="lugar.cercania"/>
+<br/>
+<label>Plan</label>
+<input type="text" class="form-control" [(ngModel)]="lugar.plan"/>
+<hr/>
+<h3>Dirección </h3>
+<label>Calle y número</label>
+<input type="text" class="form-control" [(ngModel)]="lugar.calle"/>
+<br/>
+<label>Ciudad</label>
+<input type="text" class="form-control" [(ngModel)]="lugar.ciudad"/>
+<br/>
+<label>País</label>
+<input type="text" class="form-control" [(ngModel)]="lugar.pais"/>
+<br/>
+<a class="btn btn-primary" (click)="guardarLugar()">Crear Lugar</a>
+<a class="btn btn-primary" (click)="guardarTalleres()">Guardar los talleres</a>
+<a class="btn btn-default" routerLink="/lugares">Cancelar</a>
+</div>

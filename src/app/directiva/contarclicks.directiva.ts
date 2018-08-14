@@ -1,4 +1,4 @@
-import { Directive, HostListener, HostBinding } from "../../../node_modules/@angular/core";
+import { Directive, HostListener, HostBinding } from "@angular/core";
 
 @Directive({
     selector: 'li[contar-clicks]'

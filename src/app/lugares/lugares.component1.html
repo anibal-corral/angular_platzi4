@@ -1,0 +1,66 @@
+<h1>Componente Lugares</h1>
+
+    <agm-map [latitude]="lat" [longitude]="lng">
+        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+    </agm-map>
+    Lista con <b>ngFor</b>
+    <ul>
+      <li *ngFor="let lugar of lugares">
+        <!-- <a routerLink="/detalle/{{lugar.id}}"[queryParams]="{action:'view'}">{{lugar.nombre}}</a> -->
+        <a routerLink="/crearnegocio/{{lugar.id}}">{{lugar.nombre}}</a>
+      </li>
+    </ul>
+    <hr/>
+    Lista con <b>ngFor y ngIf</b>
+    <ul>
+      <ng-container *ngFor="let lugar of lugares">
+          <li *ngIf="lugar.activo" >{{lugar.nombre}} </li>
+      </ng-container>
+      
+    </ul>
+    <hr/>
+    
+
+    <ul>
+            <ng-container *ngFor="let lugar of lugares; let i=index" [ngSwitch]="lugar.cercania">
+              <a>
+                <li contar-clicks [ngStyle]="{color: (lugar.activo) ? 'black': 'green'}" [ngClass]="{numero_par: (i+1) %2 !==0}" [resaltar]="lugar.plan">
+                  {{lugar.nombre}}
+                -
+                <span *ngSwitchCase="1"[ngStyle]="{color: 'green'}" >Muy Cercano - {{clickN}}</span> 
+                <span *ngSwitchCase="2"[ngStyle]="{color: 'black'}">Cercano - {{clickN}}</span>
+                <span *ngSwitchCase="3"[ngStyle]="{color: 'red'}">Lejano - {{clickN}}</span>  
+                </li>
+              </a>
+            </ng-container>
+            
+          </ul>
+          
+          <hr/>
+ 
+          
+          
+          <div class="container">
+          <div class="row">
+            <div class="col-md-8">
+                <h2>Bootstrap - Lugares Cercanos</h2>
+                <a class="btn btn-primary" routerLink="/crearnegocio/new">Crear Nuevo Negocio</a>
+          <ul class="list-group">
+            <ng-container *ngFor="let lugar of lugares">
+                <li *ngIf="lugar.activo" class="list-group-item" >{{lugar.nombre}} </li>
+            </ng-container>
+          </ul>
+          </div>
+          <div class="col-md-4">
+            <h2>Bootstrap - Destacados</h2>
+          </div>
+          </div>
+          </div>
+          <hr/>
+
+          <agm-map [latitude]="lat" [longitude]="lng">
+              <agm-marker *ngFor="let lugar of lugares" [latitude]="lugar.lat" [longitude]="lugar.lng" [openInfoWindow]="true"></agm-marker>
+          </agm-map>
+          <ng-container *ngFor="let lugar of lugares">
+              <li *ngIf="lugar.activo" class="list-group-item" >{{lugar.nombre}} </li>
+          </ng-container>
